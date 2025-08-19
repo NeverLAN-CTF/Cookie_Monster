@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  cookie-monster:
+    build: .
+    ports:
+      - "80:80"
+    environment:
+      - FLAG=flag{YummyC00k13s}
+    restart: unless-stopped
+    container_name: cookie-monster

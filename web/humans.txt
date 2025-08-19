@@ -1,0 +1,49 @@
+/* TEAM */
+    Developer: NeverLAN CTF Team
+    Contact: info@neverlanctf.org
+    From: United States
+
+/* SITE */
+    Last update: 2025/08/18
+    Language: English
+    Doctype: HTML5
+    IDE: Various
+    Standards: HTML5, CSS3, PHP 8.2
+    Components: Docker, Apache
+    Software: Visual Studio Code, Docker Desktop
+
+/* CREDITS */
+    Cloud Animation: CodePen Community
+        - Original cloud animation CSS from mghayour's Codepen pens
+        - Adapted for educational CTF challenge use
+        - src: https://codepen.io/mghayour/pen/AxWBYW
+    
+    Hill Background: CodePen Community
+        - CSS hill design inspired by Lukáš Mesiarik's CodePen pens
+        - Modified for challenge theme integration
+        - src: https://codepen.io/lukasmesiarik/pen/nxVMXz
+    
+    Character Images: PBS Kids / Sesame Street
+        - Cookie Monster and Elmo character images
+        - Used for educational CTF challenge purposes
+        - All rights belong to their respective owners
+        - Support your local PBS station: https://www.pbs.org/about/about-pbs/support-pbs/
+    
+    Challenge Concept: NeverLAN CTF
+        - Original cookie-based web challenge design
+        - Educational cybersecurity learning objective
+    
+    Containerization: Docker Community
+        - PHP 8.2 Apache base image
+        - Standardized deployment practices
+
+/* THANKS */
+    Thanks to the open source community for providing
+    the tools and inspiration that make challenges like
+    this possible. Special thanks to CodePen contributors
+    for sharing their creative CSS animations and designs.
+
+/* NOTE */
+    This is an educational CTF challenge designed to teach
+    web security concepts in a safe, controlled environment.
+    All vulnerabilities are intentional and educational.

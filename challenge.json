@@ -1,0 +1,51 @@
+{
+  "uuid": "550e8400-e29b-41d4-a716-446655440002",
+  "version": "1.0.0",
+  "challenge": {
+    "name": "Cookie Monster",
+    "description": "A simple web challenge about cookies. Set the right cookie value to get the flag!",
+    "default_flag": {
+      "value": "flag{YummyC00k13s}",
+      "regex": "flag\\{YummyC00k13s\\}"
+    },
+    "custom_flag": {
+      "allowed_characters": {
+        "lowercase": true,
+        "uppercase": true,
+        "numbers": true,
+        "special_characters": false,
+        "length": {"min": 10, "max": 50}
+      }
+    },
+    "deployment": {
+      "hosted": {
+        "container": {
+          "image": "cookie-monster:latest",
+          "driver": "docker",
+          "ports": [80],
+          "resource_requirements": {
+            "cpu": 0.25,
+            "memory": "128Mi",
+            "disk": "50Mi"
+          },
+          "flag_arg": "--flag"
+        },
+        "attachments": []
+      }
+    },
+    "author": {
+      "name": "NeverLAN CTF",
+      "email": "info@neverlanctf.org"
+    },
+    "language": "english",
+    "solutions": [
+      "Set a cookie named 'Red_Guy's_name' with a value that matches the regex pattern",
+      "The pattern requires the value to contain 'E' or 'e' followed by 'lmo' and one or more characters",
+      "Valid values include: 'Elmo', 'elmo', 'Elmo123', etc.",
+      "After setting the correct cookie, refresh the page to see the flag"
+    ]
+  },
+  "tags": ["web", "cookies", "beginner", "regex"],
+  "createdAt": "2019-01-09T09:00:00Z",
+  "lastUpdatedAt": "2025-08-18T20:00:00Z"
+}
