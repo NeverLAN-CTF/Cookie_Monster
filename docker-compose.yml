@@ -6,6 +6,6 @@ services:
     ports:
       - "80:80"
     environment:
-      - FLAG=flag{YummyC00k13s}
+      - FLAG=${FLAG:-flag{YummyC00k13s}}
     restart: unless-stopped
     container_name: cookie-monster
