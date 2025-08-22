@@ -4,27 +4,33 @@ $flag = getenv('FLAG') ?: 'flag{YummyC00k13s}';
 
 if(array_key_exists("Red_Guy's_name", $_COOKIE) && preg_match('/([Ee])lmo+/', $_COOKIE["Red_Guy's_name"])){
     $output = '<div class="success-message">
-        <h2>You got it!</h2>
-        <div class="flag-display">' . htmlspecialchars($flag) . '</div>
-        <p>Cookie Monster is happy to share his cookies with Elmo!</p>
-    </div>';
+                    <h2>You got it!</h2>
+                    <div class="flag-display">' . htmlspecialchars($flag) . '</div>
+                    <p>Cookie Monster is happy to share his cookies with Elmo!</p>
+                </div>';
     $showElmo = true;
     $cookieMonsterImage = 'images/cookie-monster-2.webp';
+    $cookieValue = $_COOKIE["Red_Guy's_name"];
 } else {
     $output = '<div class="challenge-message">
-        <h2>Cookie Monster Challenge</h2>
-        <p>Cookie Monster is looking for his favorite red friend!</p>
-    </div>';
+                    <h2>Cookie Monster Challenge</h2>
+                    <p>Cookie Monster is looking for his favorite red friend!</p>
+                </div>';
     $showElmo = false;
     $cookieMonsterImage = 'images/cookie-monster-1.webp';
-    setcookie("Red_Guy's_name", 'NameGoesHere', time()+300);
+    if(!array_key_exists("Red_Guy's_name", $_COOKIE)) {
+        setcookie("Red_Guy's_name", 'NameGoesHere', time()+300);
+        $cookieValue = 'NameGoesHere';
+    } else {
+        $cookieValue = $_COOKIE["Red_Guy's_name"];
+    }
 }
 
 $elmoElement = '';
 if ($showElmo) {
     $elmoElement = '<div class="elmo show">
-        <img src="images/elmo-1.webp" alt="Elmo" class="character-image">
-    </div>';
+                        <img src="images/elmo-1.webp" alt="Elmo" class="character-image">
+                    </div>';
 }
 ?>
 <!DOCTYPE html>
@@ -42,7 +48,7 @@ if ($showElmo) {
 
         body {
             font-family: 'Comic Sans MS', cursive, sans-serif;
-            background-color: SkyBlue;
+            background-color: #00BFFF;
             width: 100%;
             height: 100vh;
             overflow: hidden;
@@ -58,7 +64,7 @@ if ($showElmo) {
             height: 55%;
             border-top-right-radius: 0;
             border-top-left-radius: 100%;
-            background-color: LightGreen;
+            background-color: #7ba428;
             z-index: 1;
         }
 
@@ -71,7 +77,7 @@ if ($showElmo) {
             height: 110%;
             border-top-right-radius: 100%;
             border-top-left-radius: 0%;
-            background-color: PaleGreen;
+            background-color: #9acd32;
         }
 
         /* Cloud Animation Background */
@@ -385,7 +391,7 @@ if ($showElmo) {
         
         <div style="margin-top: 2rem;">
             <p><strong>Current cookie value:</strong> 
-                <code><?php echo isset($_COOKIE["Red_Guy's_name"]) ? htmlspecialchars($_COOKIE["Red_Guy's_name"]) : 'Not set'; ?></code>
+                <code><?php echo isset($cookieValue) ? htmlspecialchars($cookieValue) : 'Not set'; ?></code>
             </p>
         </div>
     </div>
