@@ -8,6 +8,27 @@ Cookie Monster is looking for his favorite red friend! Set a cookie named `Red_G
 
 ## Building and Running
 
+### Using Makefile
+
+The easiest way to deploy and manage this challenge is using the provided Makefile:
+
+```bash
+# Show available commands
+make help
+
+# Deployment with custom flag
+make deploy FLAG=flag{custom_flag_here}
+
+# Standard deployment
+make deploy
+
+# Full rebuild
+make rebuild
+
+# Clean up
+make clean
+```
+
 ### Using Docker
 
 1. Build the Docker image:
@@ -34,12 +55,6 @@ docker run -p 80:80 -e FLAG="flag{custom_flag_here}" cookie-monster
 
 ```bash
 docker-compose up -d
-```
-
-### Using Build Script
-
-```bash
-./build.sh
 ```
 
 ## Solution
@@ -83,11 +98,12 @@ Any value that matches the pattern `/([Ee])lmo+/` will work:
 
 ```
 cookie-monster/
-├── challenge.json      # Challenge metadata and configuration
-├── Dockerfile         # Container definition
-├── docker-compose.yml # Docker compose configuration
-├── build.sh          # Build script
-├── README.md         # This file
+├── challenge.json     # Challenge metadata and configuration
+├── Dockerfile        
+├── Makefile           
+├── docker-compose.yml 
+├── build.sh          
+├── README.md         
 └── web/              # Application source code
     └── index.php     # Main PHP application
 ```

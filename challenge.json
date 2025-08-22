@@ -1,51 +1,57 @@
 {
+  "$schema": "./challenge.schema.json",
   "uuid": "550e8400-e29b-41d4-a716-446655440002",
   "version": "1.0.0",
-  "challenge": {
-    "name": "Cookie Monster",
-    "description": "A simple web challenge about cookies. Set the right cookie value to get the flag!",
-    "default_flag": {
-      "value": "flag{YummyC00k13s}",
-      "regex": "flag\\{YummyC00k13s\\}"
+  "deployment": {
+    "type": "hosted",
+    "hosted": {
+      "container": {
+        "driver": "docker",
+        "image": "neverlan/ctf-challenge-cookie-monster:latest",
+        "flagArg": "--flag",
+        "ports": [
+          { 
+            "port": 80,
+            "protocol": "http"
+          }
+        ]
+      }
+    }
+  },
+  "name": "Cookie Monster",
+  "description": "A simple web challenge about cookies. Set the right cookie value to get the flag!",
+  "flag":{
+    "validation": {
+      "static": ["flag{YummyC00k13s}"],
+      "regex": ["flag\\{YummyC00k13s\\}"]
     },
-    "custom_flag": {
-      "allowed_characters": {
+    "generation": {
+      "allowedCharacters": {
         "lowercase": true,
         "uppercase": true,
         "numbers": true,
-        "special_characters": false,
+        "specialCharacters": false,
         "length": {"min": 10, "max": 50}
       }
-    },
-    "deployment": {
-      "hosted": {
-        "container": {
-          "image": "cookie-monster:latest",
-          "driver": "docker",
-          "ports": [80],
-          "resource_requirements": {
-            "cpu": 0.25,
-            "memory": "128Mi",
-            "disk": "50Mi"
-          },
-          "flag_arg": "--flag"
-        },
-        "attachments": []
-      }
-    },
-    "author": {
-      "name": "NeverLAN CTF",
-      "email": "info@neverlanctf.org"
-    },
-    "language": "english",
-    "solutions": [
-      "Set a cookie named 'Red_Guy's_name' with a value that matches the regex pattern",
-      "The pattern requires the value to contain 'E' or 'e' followed by 'lmo' and one or more characters",
-      "Valid values include: 'Elmo', 'elmo', 'Elmo123', etc.",
-      "After setting the correct cookie, refresh the page to see the flag"
-    ]
+    }
   },
-  "tags": ["web", "cookies", "beginner", "regex"],
-  "createdAt": "2019-01-09T09:00:00Z",
-  "lastUpdatedAt": "2025-08-18T20:00:00Z"
+  "author": {
+    "name": "NeverLAN CTF",
+    "email": "info@neverlanctf.org"
+  },
+  "points": 100,
+  "category": "crypto",
+  "language": "english",
+  "solutions": [
+    "Set a cookie named 'Red_Guy's_name' with a value that matches the regex pattern",
+    "The pattern requires the value to contain 'E' or 'e' followed by 'lmo' and one or more characters",
+    "Valid values include: 'Elmo', 'elmo', 'Elmo123', etc.",
+    "After setting the correct cookie, refresh the page to see the flag"
+  ],
+  "hints": [
+    "Check the browser's developer tools to see how cookies are set",
+    "You can use JavaScript in the console to set cookies",
+    "Remember to include the correct cookie name and value format"
+  ],
+  "tags": ["web", "cookies", "beginner", "regex"]
 }

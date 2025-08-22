@@ -1,5 +1,4 @@
 # Challenge Deployment Makefile
-# For CTFd Challenge Forge Plugin
 
 # Default values
 CHALLENGE_NAME ?= cookie-monster
@@ -20,13 +19,19 @@ help:
 	@echo "Available targets:"
 	@echo "  help          - Show this help message"
 	@echo "  build         - Build the challenge Docker image"
+	@echo "  rebuild       - Clean and rebuild the challenge Docker image"
 	@echo "  deploy        - Deploy the challenge with current settings"
 	@echo "  clean         - Stop and remove containers and volumes"
 	@echo "  generate-env  - Generate .env file from challenge.json"
+	@echo "  status        - Show challenge status"
+	@echo "  logs          - Show challenge logs"
+	@echo "  logs-follow   - Show challenge logs"
+	@echo "  bundle        - Create challenge bundle"
+	@echo "  install-deps  - Install development dependencies"
 	@echo "  test          - Test the challenge deployment"
 	@echo "  validate      - Validate challenge.json schema"
 	@echo ""
-	@echo "Environment variables:"
+	@echo "Configurable variables:"
 	@echo "  CHALLENGE_NAME=$(CHALLENGE_NAME)"
 	@echo "  FLAG=$(FLAG)"
 	@echo ""
